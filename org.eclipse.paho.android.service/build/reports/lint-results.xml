@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.4.1">
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: android.permission.ACCESS_NETWORK_STATE"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with targetSdkVersion 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="  NetworkInfo networkInfo = cm.getActiveNetworkInfo();"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttService.java"
+            line="858"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="InvalidWakeLockTag"
+        severity="Error"
+        message="Tag name should use a unique prefix followed by a colon (found MQTT). For instance `myapp:mywakelocktag`. This will help with debugging"
+        category="Correctness"
+        priority="6"
+        summary="Invalid Wake Lock Tag"
+        explanation="Wake Lock tags must follow the naming conventions defined in the`PowerManager` documentation."
+        url="https://developer.android.com/reference/android/os/PowerManager.html"
+        urls="https://developer.android.com/reference/android/os/PowerManager.html"
+        errorLine1="   WakeLock wl = pm"
+        errorLine2="                 ^">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttService.java"
+            line="836"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="ExportedService"
+        severity="Warning"
+        message="Exported service does not require permission"
+        category="Security"
+        priority="5"
+        summary="Exported service does not require permission"
+        explanation="Exported services (services which either set `exported=true` or contain an intent-filter and do not specify `exported=false`) should define a permission that an entity must have in order to launch the service or bind to it. Without this, any application can use this service."
+        errorLine1="        &lt;service"
+        errorLine2="         ~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\AndroidManifest.xml"
+            line="6"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="WakelockTimeout"
+        severity="Warning"
+        message="Provide a timeout when requesting a wakelock with `PowerManager.Wakelock.acquire(long timeout)`. This will ensure the OS will cleanup any wakelocks that last longer than you intend, and will save your user&apos;s battery."
+        category="Performance"
+        priority="9"
+        summary="Using wakeLock without timeout"
+        explanation="Wakelocks have two acquire methods: one with a timeout, and one without. You should generally always use the one with a timeout. A typical timeout is 10 minutes. If the task takes longer than it is critical that it happens (i.e. can&apos;t use `JobScheduler`) then maybe they should consider a foreground service instead (which is a stronger run guarantee and lets the user know something long/important is happening)."
+        errorLine1="   wakelock.acquire();"
+        errorLine2="   ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\AlarmPingSender.java"
+            line="324"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="WakelockTimeout"
+        severity="Warning"
+        message="Provide a timeout when requesting a wakelock with `PowerManager.Wakelock.acquire(long timeout)`. This will ensure the OS will cleanup any wakelocks that last longer than you intend, and will save your user&apos;s battery."
+        category="Performance"
+        priority="9"
+        summary="Using wakeLock without timeout"
+        explanation="Wakelocks have two acquire methods: one with a timeout, and one without. You should generally always use the one with a timeout. A typical timeout is 10 minutes. If the task takes longer than it is critical that it happens (i.e. can&apos;t use `JobScheduler`) then maybe they should consider a foreground service instead (which is a stronger run guarantee and lets the user know something long/important is happening)."
+        errorLine1="  wakelock.acquire();"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttConnection.java"
+            line="954"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="WakelockTimeout"
+        severity="Warning"
+        message="Provide a timeout when requesting a wakelock with `PowerManager.Wakelock.acquire(long timeout)`. This will ensure the OS will cleanup any wakelocks that last longer than you intend, and will save your user&apos;s battery."
+        category="Performance"
+        priority="9"
+        summary="Using wakeLock without timeout"
+        explanation="Wakelocks have two acquire methods: one with a timeout, and one without. You should generally always use the one with a timeout. A typical timeout is 10 minutes. If the task takes longer than it is critical that it happens (i.e. can&apos;t use `JobScheduler`) then maybe they should consider a foreground service instead (which is a stronger run guarantee and lets the user know something long/important is happening)."
+        errorLine1="   wl.acquire();"
+        errorLine2="   ~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttService.java"
+            line="838"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 16"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="  if (Build.VERSION.SDK_INT &lt; 14 /**Build.VERSION_CODES.ICE_CREAM_SANDWICH**/) {"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttService.java"
+            line="794"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 16"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="   if (Build.VERSION.SDK_INT &lt; 14 /**Build.VERSION_CODES.ICE_CREAM_SANDWICH**/) {"
+        errorLine2="       ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\java\org\eclipse\paho\android\service\MqttService.java"
+            line="814"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v11`) is unnecessary; `minSdkVersion` is 16. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\res\values-v11"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v14`) is unnecessary; `minSdkVersion` is 16. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="D:\Projects\MqttService\org.eclipse.paho.android.service\src\main\res\values-v14"/>
+    </issue>
+
+</issues>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Projects\\MqttService\\org.eclipse.paho.android.service\\build\\intermediates\\res\\merged\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\Mrkk\\.gradle\\caches\\transforms-2\\files-2.1\\a668004a0c497cb69ec32f1d2a880505\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\Projects\\MqttService\\org.eclipse.paho.android.service\\build\\intermediates\\res\\merged\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\Mrkk\\.gradle\\caches\\transforms-2\\files-2.1\\a668004a0c497cb69ec32f1d2a880505\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\Projects\\MqttService\\org.eclipse.paho.android.service\\build\\intermediates\\res\\merged\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\Mrkk\\.gradle\\caches\\transforms-2\\files-2.1\\a668004a0c497cb69ec32f1d2a880505\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\Projects\\MqttService\\org.eclipse.paho.android.service\\build\\intermediates\\res\\merged\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\Mrkk\\.gradle\\caches\\transforms-2\\files-2.1\\a668004a0c497cb69ec32f1d2a880505\\res\\drawable\\notification_icon_background.xml"
+    }
+]
